@@ -7,6 +7,17 @@ const findAll = async (requestAnimationFrame, res) => {
         res.json(e)
     }
 }
+
+const save = async (req, res) => {
+    try {
+        const customer = new Customer(req.body);
+        await customer.save();
+        res.status(201).json(customer)
+    } catch (e) {
+        res.json(e)
+    }
+}
 module.exports = {
-    findAll
+    findAll,
+    save
 }
