@@ -8,9 +8,16 @@ const findAll = async (requestAnimationFrame, res) => {
     }
 }
 
+
+
 const save = async (req, res) => {
     try {
-        const car = new Car(req.body);
+        const { name, description } = req.body
+        const car = new Car({
+            name,
+            description,
+            image: req.file.originalname
+        });
         await car.save();
         res.status(201).json(car)
     } catch (e) {
