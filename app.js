@@ -1,10 +1,10 @@
 const express = require("express")
-const connectDB = require("./config/db")
-const CustomerRouter = require("./routes/CustomerRoute")
+const connectDb = require("./config/db")
+const CustomerRouter = require("./routes/customerRoute")
 const app = express();
 
 
-connectDB();
+connectDb();
 app.use(express.json());
 app.use("/api/customer", CustomerRouter);
 
