@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router();
 const { findAll, save, findById, deleteById, update } = require("../controller/CarController");
-
+const { authenticateToken } = require("../security/Auth")
 const multer = require("multer")
 const storage = multer.diskStorage({
     destination: function (req, res, cb) {
@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage })
 
-router.get("/", findAll);
+router.get("/", authenticateToken, findAll);
 router.post("/", upload.single('file'), save);
 router.get("/:id", findById);
 router.delete("/:id", deleteById)

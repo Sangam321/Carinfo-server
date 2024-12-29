@@ -5,7 +5,7 @@ const { schema } = require("../model/Comparison");
 
 const customerSchema = joi.object({
     full_name: joi.string().required(),
-    email: joi.string().required.email(),
+    email: joi.string().required().email(),
 })
 
 
