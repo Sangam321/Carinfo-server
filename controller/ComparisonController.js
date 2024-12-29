@@ -1,7 +1,7 @@
 const Comparison = require('../model/Comparison')
 const findAll = async (requestAnimationFrame, res) => {
     try {
-        const comparisons = await Comparison.find().populate('customerId', 'name');
+        const comparisons = await Comparison.find();
         res.status(200).json(comparisons);
     } catch (e) {
         res.json(e)

@@ -1,20 +1,20 @@
-const mongoose = require("mongoose")
+const mongooose = require("mongoose")
 
-const comparisonSchema = new mongoose.Schema({
+const comparisonSchema = new mongooose.Schema({
     customerId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongooose.Schema.Types.ObjectId,
         ref: "customers"
     },
     car1Id: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongooose.Schema.Types.ObjectId,
         ref: "cars"
     },
 
     car2Id: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongooose.Schema.Types.ObjectId,
         ref: "cars"
     },
 })
 
-const Comparison = mongoose.model("comparison", comparisonSchema);
+const Comparison = mongooose.model("comparison", comparisonSchema);
 module.exports = Comparison;
