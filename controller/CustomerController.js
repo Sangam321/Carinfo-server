@@ -1,4 +1,5 @@
 const Customer = require('../model/Customer')
+const nodemailer = require("nodemailer")
 const findAll = async (requestAnimationFrame, res) => {
     try {
         const customers = await Customer.find();
@@ -12,7 +13,36 @@ const save = async (req, res) => {
     try {
         const customer = new Customer(req.body);
         await customer.save();
-        res.status(201).json(customer)
+
+        const transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false,
+            protocol: "smtp",
+            auth: {
+                user: "sangambasnett888@gmail.com",
+                pass: "lcde jzsh nskq geys"
+            }
+        })
+
+        const info = await transporter.sendMail({
+            from: "sangambasnett888@gmail.com",
+            to: customer.email,
+            subject: "Customer Registration",
+            html: `
+                <h1>
+                    Your Registration has been Completed!
+                </h1><p> Your user id is ${customer.id}</p>
+                `
+
+
+        })
+
+
+
+
+
+        res.status(201).json({ customer, info })
     } catch (e) {
         res.json(e)
     }
