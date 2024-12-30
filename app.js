@@ -5,6 +5,7 @@ const CarRouter = require("./routes/CarRoute")
 const AuthRouter = require("./routes/AuthRoute")
 const ComparisonRouter = require("./routes/ComparisonRoute")
 const FavouritesRouter = require("./routes/FavouritesRoute")
+const RatingRouter = require("./routes/RatingRoute")
 const app = express();
 
 
@@ -15,6 +16,7 @@ app.use("/api/car", CarRouter);
 app.use("/api/comparison", ComparisonRouter);
 app.use("/api/auth", AuthRouter);
 app.use("/api/favourites", FavouritesRouter);
+app.use("/api/rating", RatingRouter);
 
 const port = 3000;
 app.listen(port, () => {
