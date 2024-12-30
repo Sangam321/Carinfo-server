@@ -1,6 +1,10 @@
 const mongooose = require("mongoose")
 
 const comparisonSchema = new mongooose.Schema({
+    comparisonId: {
+        type: String,
+        required: true
+    },
     customerId: {
         type: mongooose.Schema.Types.ObjectId,
         ref: "customers"
