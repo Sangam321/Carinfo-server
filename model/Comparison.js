@@ -2,9 +2,9 @@ const mongooose = require("mongoose")
 
 const comparisonSchema = new mongooose.Schema({
 
-    customerId: {
+    userId: {
         type: mongooose.Schema.Types.ObjectId,
-        ref: "customers"
+        ref: "users"
     },
     car1Id: {
         type: mongooose.Schema.Types.ObjectId,

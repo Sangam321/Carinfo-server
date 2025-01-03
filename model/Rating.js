@@ -1,9 +1,9 @@
 const mongooose = require("mongoose")
 
 const ratingSchema = new mongooose.Schema({
-    customerId: {
+    userId: {
         type: mongooose.Schema.Types.ObjectId,
-        ref: "customers"
+        ref: "users"
     },
     carId: {
         type: mongooose.Schema.Types.ObjectId,

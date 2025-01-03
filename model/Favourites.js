@@ -11,7 +11,7 @@ const favouriteSchema = new mongooose.Schema({
     },
     userID: {
         type: mongooose.Schema.Types.ObjectId,
-        ref: "customers"
+        ref: "users"
     }
 })
 
