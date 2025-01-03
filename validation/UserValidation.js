@@ -3,19 +3,19 @@ const { schema } = require("../model/Comparison");
 
 
 
-const customerSchema = joi.object({
+const userSchema = joi.object({
     full_name: joi.string().required(),
     email: joi.string().required().email(),
 })
 
 
-function CustomerValidation(req, res, next) {
+function UserValidation(req, res, next) {
     const { full_name, email } = req.body;
-    const { error } = customerSchema.validate({ full_name, email })
+    const { error } = userSchema.validate({ full_name, email })
     if (error) {
         return res.json(error)
     }
     next()
 }
 
-module.exports = CustomerValidation;
+module.exports = UserValidation;
