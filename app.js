@@ -1,6 +1,6 @@
 const express = require("express")
 const connectDb = require("./config/db")
-const CustomerRouter = require("./routes/customerRoute")
+const UserRouter = require("./routes/userRoute")
 const CarRouter = require("./routes/CarRoute")
 const AuthRouter = require("./routes/AuthRoute")
 const ComparisonRouter = require("./routes/ComparisonRoute")
@@ -11,7 +11,7 @@ const app = express();
 
 connectDb();
 app.use(express.json());
-app.use("/api/customer", CustomerRouter);
+app.use("/api/user", UserRouter);
 app.use("/api/car", CarRouter);
 app.use("/api/comparison", ComparisonRouter);
 app.use("/api/auth", AuthRouter);
